@@ -31,3 +31,14 @@ console
 
 ctrl+shift+e
 
+# Create Test
+
+ctrl+shift+t 
+
+# Move Statement
+
+ctrl+shift+↑↓←→
+
+# Paste From History
+
+ctrl+shift+v
