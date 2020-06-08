@@ -16,6 +16,21 @@ import java.util.stream.Collectors;
  * @Modified By:wangzilinn@gmail.com
  */
 public class main {
+    //java14 preview
+//    String html = "<html>\n" +
+//            "    <body>\n" +
+//            "        <p>hello world</p>\n" +
+//            "    </body>\n"+
+//            "</html>";
+    String html = """
+            <html>
+                <body>
+                    <p>hello world</p>
+                </body>
+            </html>
+            """;
+
+
     private void collection() {
         final List<String> strings = new ArrayList<>();
         final Map<Integer, String> map = new HashMap<>();
@@ -67,7 +82,7 @@ public class main {
 //        }
         aValue.ifPresent(System.out::println);
 
-        aValue.ifPresentOrElse(System.out::println, ()-> System.out.println("Doesn't exist"));
+        aValue.ifPresentOrElse(System.out::println, () -> System.out.println("Doesn't exist"));
     }
 
     private void time() {
@@ -87,7 +102,7 @@ public class main {
         }
     }
 
-    @Contract(pure=true)
+    @Contract(pure = true)
     private @NotNull String annotations(@NotNull Object param) {
         String value = param.toString();
         return "This can never return null";
@@ -97,5 +112,37 @@ public class main {
     private void varWhereAppropriate() {
         var s = "My String";
         var integers = List.of(1, 2, 3, 4);
+    }
+
+    //java14
+    private String switchExpressions(int someValue) {
+        //        switch (someValue) {
+//            case 1:
+//                retval = "first value";
+//                break;
+//            case 2:
+//                retval = "second value";
+//                break;
+//            default:
+//                throw new IllegalStateException("Unexpected value: " + someValue);
+//        }
+        return switch (someValue) {
+            case 1 -> "first value";
+            case 2 -> "second value";
+            default -> throw new IllegalStateException("Unexpected value: " + someValue);
+        };
+    }
+
+    private void helpfulNullPointerExceptions() {
+
+    }
+
+    //java14
+    private void previewFeatures() {
+        new MyRecord(1, "name");
+    }
+
+    private record MyRecord(int id, String name) {
+
     }
 }
